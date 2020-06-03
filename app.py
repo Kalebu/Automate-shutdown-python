@@ -14,6 +14,7 @@ def shutdown(time):
     if OS_type == 'linux':
         shutdown_str = 'shutdown -t '+ str(time)
     elif OS_type == 'windows':
+        time = time * 60
         shutdown_str == 'shutdown -s -t ' + str(time)
     else:
         print('Sorry this feature is not available in ', OS_type)
@@ -35,7 +36,7 @@ def main():
     print('1.Automate Shutdown\n2.Cancel shutdown')
     option = int(input('Option here: '))
     if option == 1:
-        time = int(input('\nEnter time to shutdown in seconds : '))
+        time = int(input('\nEnter time to shutdown in Minutes : '))
         shutdown(time)
     elif option == 2:
         cancel_shutdown()
